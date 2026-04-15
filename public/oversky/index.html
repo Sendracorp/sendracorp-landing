@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OverSky</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: #0a0a0f;
+      color: #e0e0e8;
+      font-family: 'IBM Plex Mono', monospace;
+      line-height: 1.7;
+      padding: 80px 24px;
+    }
+    .container { max-width: 680px; margin: 0 auto; }
+    h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .subtitle {
+      color: rgba(0, 255, 136, 0.7);
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+    .card {
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .card h2 {
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: rgba(0, 255, 136, 0.9);
+    }
+    .card p { color: rgba(224, 224, 232, 0.8); font-size: 0.95rem; margin-bottom: 16px; }
+    .card a {
+      color: rgba(0, 255, 136, 0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 255, 136, 0.4);
+    }
+    .card a:hover { border-bottom-color: rgba(0, 255, 136, 0.9); }
+    .footer {
+      margin-top: 64px;
+      font-size: 0.75rem;
+      color: rgba(224, 224, 232, 0.4);
+      text-align: center;
+    }
+    .footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>OverSky</h1>
+    <div class="subtitle">Tomorrow's weather, glanceable</div>
+
+    <div class="card">
+      <h2>About</h2>
+      <p>OverSky is a native iOS weather app that shows tomorrow's forecast for your current location, with an optional persistent indicator on your Lock Screen and Dynamic Island.</p>
+      <p>Free, ad-supported. Available on the App Store.</p>
+    </div>
+
+    <div class="card">
+      <h2>Privacy</h2>
+      <p>OverSky takes privacy seriously. We use your location only to show your local weather, and we don't sell or share your data.</p>
+      <p><a href="/oversky/privacy">Read the full privacy policy →</a></p>
+    </div>
+
+    <div class="card">
+      <h2>Support</h2>
+      <p>Need help, found a bug, or have feedback?</p>
+      <p><a href="/oversky/support">Get in touch →</a></p>
+    </div>
+
+    <div class="footer">
+      <a href="/">Sendracorp</a> · © 2026
+    </div>
+  </div>
+</body>
+</html>
