@@ -3,25 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SCorp</title>
+  <title>Sendracorp — iOS apps, games &amp; on-chain tools</title>
+  <meta name="description" content="Sendracorp is an independent software studio building native iOS apps, games, and on-chain Web3 tools. Founded by Pol Sendra.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="canonical" href="https://sendracorp.com/">
   <link rel="icon" type="image/png" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta property="og:site_name" content="Sendracorp">
+  <meta property="og:title" content="Sendracorp — iOS apps, games & on-chain tools">
+  <meta property="og:description" content="Independent software studio building native iOS apps, games, and on-chain Web3 tools.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sendracorp.com/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://sendracorp.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sendracorp — independent software studio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sendracorp — iOS apps, games & on-chain tools">
+  <meta name="twitter:description" content="Independent software studio building native iOS apps, games, and on-chain Web3 tools.">
+  <meta name="twitter:image" content="https://sendracorp.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sendracorp",
+    "url": "https://sendracorp.com/",
+    "logo": "https://sendracorp.com/favicon.png",
+    "email": "sendracorp@protonmail.com",
+    "description": "Independent software studio building native iOS apps, games, and on-chain Web3 tools.",
+    "founder": {
+      "@type": "Person",
+      "name": "Pol Sendra",
+      "url": "https://www.linkedin.com/in/polsendragarcia/"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/polsendragarcia/"
+    ]
+  }
+  </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@300;500;700&display=swap');
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: #0a0a0f;
       color: #e0e0e8;
       font-family: 'IBM Plex Mono', monospace;
-      overflow: hidden;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
     }
 
-    /* Scanline overlay — subtle CRT feel */
+    /* Subtle CRT scanline overlay */
     body::after {
       content: '';
       position: fixed;
@@ -34,12 +77,68 @@
         rgba(0, 0, 0, 0.08) 2px,
         rgba(0, 0, 0, 0.08) 4px
       );
-      z-index: 10;
+      z-index: 100;
     }
 
-    /* Ambient glow behind logo */
+    /* === HEADER / NAV === */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    }
+    nav {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    nav .brand {
+      color: rgba(0, 255, 136, 0.9);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+    nav .links a {
+      color: rgba(224, 224, 232, 0.7);
+      text-decoration: none;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+    nav .links a:hover { color: rgba(0, 255, 136, 0.9); }
+
+    /* === LAYOUT === */
+    main { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 80px 0; border-bottom: 1px solid rgba(0, 255, 136, 0.06); }
+    section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(0, 255, 136, 0.7);
+      margin-bottom: 32px;
+    }
+    h2::before { content: '// '; opacity: 0.5; }
+
+    /* === HERO === */
+    .hero {
+      text-align: center;
+      padding: 100px 0 80px;
+      position: relative;
+    }
     .glow {
-      position: fixed;
+      position: absolute;
       width: 600px;
       height: 600px;
       border-radius: 50%;
@@ -49,62 +148,19 @@
       transform: translate(-50%, -50%);
       pointer-events: none;
       animation: pulse 6s ease-in-out infinite alternate;
+      z-index: 0;
     }
-
     @keyframes pulse {
       0%   { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
       100% { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
     }
 
-    .container {
-      text-align: center;
-      z-index: 1;
-      position: relative;
-    }
-
-    /* === LOGO === */
-    .logo {
-      display: inline-block;
-      margin-bottom: 32px;
-    }
-
-    .logo svg {
-      width: 280px;
-      height: auto;
-    }
-
-    /* Terminal-cursor blink on the bracket */
-    .cursor {
-      animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .wordmark {
-      font-family: 'Space Mono', monospace;
-      font-weight: 700;
-      font-size: 2.4rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #e0e0e8;
-      margin-bottom: 12px;
-    }
-
-    .tagline {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: rgba(0, 255, 136, 0.6);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-    }
-
-    /* Pixel-art grid decoration */
     .grid-border {
       display: inline-block;
       padding: 40px 56px;
       border: 1px solid rgba(0, 255, 136, 0.15);
       position: relative;
+      z-index: 1;
     }
     .grid-border::before,
     .grid-border::after {
@@ -116,8 +172,6 @@
     }
     .grid-border::before { top: -4px; left: -4px; }
     .grid-border::after  { bottom: -4px; right: -4px; }
-
-    /* Corner accents — opposite pair */
     .corner-tr, .corner-bl {
       position: absolute;
       width: 8px;
@@ -126,39 +180,229 @@
     }
     .corner-tr { top: -4px; right: -4px; }
     .corner-bl { bottom: -4px; left: -4px; }
+
+    .logo { display: inline-block; margin-bottom: 24px; }
+    .logo svg { width: 260px; height: auto; }
+    .cursor { animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    h1.wordmark {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e0e0e8;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+    .tagline {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(0, 255, 136, 0.65);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .hero-blurb {
+      margin-top: 48px;
+      font-size: 1.05rem;
+      color: rgba(224, 224, 232, 0.85);
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === CARDS === */
+    .card {
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      padding: 28px 32px;
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .card + .card { margin-top: 16px; }
+    .card p { color: rgba(224, 224, 232, 0.85); font-size: 0.95rem; }
+    .card p + p { margin-top: 14px; }
+    .card strong { color: rgba(0, 255, 136, 0.9); font-weight: 500; }
+    .card p a {
+      color: rgba(0, 255, 136, 0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 255, 136, 0.4);
+      transition: border-bottom-color 0.2s;
+    }
+    .card p a:hover { border-bottom-color: rgba(0, 255, 136, 0.9); }
+    .card h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    /* === WORK GRID === */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 720px) {
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+    .grid-3 .card h3 { color: rgba(0, 255, 136, 0.9); }
+
+    /* === SHIPPED CARD (link card) === */
+    a.link-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    a.link-card:hover {
+      border-color: rgba(0, 255, 136, 0.4);
+      background: rgba(0, 255, 136, 0.02);
+    }
+    a.link-card .cta {
+      display: inline-block;
+      margin-top: 14px;
+      color: rgba(0, 255, 136, 0.8);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* === CONTACT === */
+    .email-card { text-align: center; padding: 36px 24px; }
+    .email-card a {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+      color: rgba(0, 255, 136, 0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 255, 136, 0.4);
+      padding-bottom: 2px;
+    }
+    .email-card a:hover { border-bottom-color: rgba(0, 255, 136, 0.9); }
+    .email-card .label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(224, 224, 232, 0.5);
+      margin-bottom: 16px;
+    }
+
+    /* === FOOTER === */
+    footer {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(224, 224, 232, 0.4);
+      letter-spacing: 0.1em;
+    }
+    footer a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(224, 224, 232, 0.2);
+    }
+    footer a:hover { color: rgba(0, 255, 136, 0.8); }
+    footer .sep { margin: 0 12px; opacity: 0.5; }
   </style>
 </head>
 <body>
-  <div class="glow"></div>
-  <div class="container">
-    <div class="grid-border">
-      <div class="corner-tr"></div>
-      <div class="corner-bl"></div>
+  <header>
+    <nav>
+      <a href="/" class="brand">[ Sendracorp ]</a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-      <!-- Logo: stylized S inside angle brackets, retro terminal style -->
-      <div class="logo">
-        <svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
-          <!-- Left bracket -->
-          <text x="20" y="90" font-family="'Space Mono', monospace" font-weight="700"
-                font-size="80" fill="none" stroke="rgba(0,255,136,0.8)" stroke-width="1.5"
-                >&lt;</text>
+  <main>
+    <section class="hero">
+      <div class="glow"></div>
+      <div class="grid-border">
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
 
-          <!-- S glyph — the icon -->
-          <text x="98" y="92" font-family="'Space Mono', monospace" font-weight="700"
-                font-size="86" fill="rgba(0,255,136,0.9)"
-                >S</text>
+        <div class="logo">
+          <svg viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle">
+            <title id="logoTitle">Sendracorp logo</title>
+            <text x="20" y="90" font-family="'Space Mono', monospace" font-weight="700"
+                  font-size="80" fill="none" stroke="rgba(0,255,136,0.8)" stroke-width="1.5"
+                  >&lt;</text>
+            <text x="98" y="92" font-family="'Space Mono', monospace" font-weight="700"
+                  font-size="86" fill="rgba(0,255,136,0.9)"
+                  >S</text>
+            <text x="178" y="90" font-family="'Space Mono', monospace" font-weight="700"
+                  font-size="80" fill="none" stroke="rgba(0,255,136,0.8)" stroke-width="1.5"
+                  >&gt;</text>
+            <rect class="cursor" x="248" y="42" width="12" height="52" rx="1"
+                  fill="rgba(0,255,136,0.7)" />
+          </svg>
+        </div>
 
-          <!-- Right bracket + blinking cursor -->
-          <text x="178" y="90" font-family="'Space Mono', monospace" font-weight="700"
-                font-size="80" fill="none" stroke="rgba(0,255,136,0.8)" stroke-width="1.5"
-                >&gt;</text>
-          <rect class="cursor" x="248" y="42" width="12" height="52" rx="1"
-                fill="rgba(0,255,136,0.7)" />
-        </svg>
+        <h1 class="wordmark">Sendracorp</h1>
+        <div class="tagline">Independent software studio</div>
       </div>
 
-      <div class="wordmark">Sendracorp</div>
-    </div>
-  </div>
+      <p class="hero-blurb">
+        We design and build native applications, small games, and on-chain tools — favoring focused, well-crafted software over scale.
+      </p>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          Sendracorp is an independent software studio founded by <a href="https://www.linkedin.com/in/polsendragarcia/" target="_blank" rel="noopener"><strong>Pol Sendra</strong></a>. We build a small number of products at a time, across native apps, games, and blockchain — and ship them ourselves.
+        </p>
+        <p>
+          Our background spans smart-contract development at <strong>Aave</strong> and <strong>BGD Labs</strong>, blockchain-based credit infrastructure at <strong>Raise</strong>, full-stack real-estate tooling at <strong>AgentSelly</strong>, and conversational commerce at <strong>correYvuela</strong>. That history shapes how we work today: opinionated about quality, comfortable across the stack, and unafraid of the systems-level details — from Solidity to Swift.
+        </p>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>What we build</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Apps</h3>
+          <p>Native iOS applications built with Swift and SwiftUI. We care about platform conventions, performance, and the small details that make software feel finished.</p>
+        </div>
+        <div class="card">
+          <h3>Games</h3>
+          <p>Small, self-contained games with a single tight idea — designed to be picked up in a minute and remembered for longer.</p>
+        </div>
+        <div class="card">
+          <h3>On-chain</h3>
+          <p>Smart contracts, protocol tooling, and Web3 integrations — drawing on production experience in DeFi and Ethereum-based systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card email-card">
+        <span class="label">Get in touch</span>
+        <a href="mailto:sendracorp@protonmail.com">sendracorp@protonmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Sendracorp
+      <span class="sep">·</span>
+      <a href="/oversky/">OverSky</a>
+      <span class="sep">·</span>
+      <a href="mailto:sendracorp@protonmail.com">sendracorp@protonmail.com</a>
+    </p>
+  </footer>
 </body>
 </html>
